@@ -1,0 +1,6 @@
+{
+  "port": 5000,
+  "mongoUri": "mongodb://localhost",
+  "mongoAppName": "ast-eco-test",
+  "jwtSecret": "GrantReact"
+}
