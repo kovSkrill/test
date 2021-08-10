@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { useHttp } from "../hooks/http.hook"
 import { useMessage } from "../hooks/message.hook"
-import {AuthContext} from '../context/authContext'
+import { AuthContext } from "../context/authContext"
 
 export const AuthPage = () => {
   const auth = useContext(AuthContext)
@@ -16,6 +16,10 @@ export const AuthPage = () => {
     message(error)
     clearError()
   }, [error, message, clearError])
+
+  useEffect(() => {
+    window.M.updateTextFields()
+  })
 
   const changeHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value })
@@ -44,6 +48,7 @@ export const AuthPage = () => {
             <div className="row">
               <div className="input-field col s6">
                 <input
+                  autoComplete="off"
                   placeholder="введите email"
                   id="email"
                   type="text"
@@ -56,6 +61,7 @@ export const AuthPage = () => {
             <div className="row">
               <div className="input-field col s6">
                 <input
+                  autoComplete="off"
                   placeholder="введите пароль"
                   id="password"
                   type="password"
